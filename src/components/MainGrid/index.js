@@ -1,0 +1,26 @@
+import styled from "styled-components";
+
+const MainGrid = styled.div `
+width: 100%;
+grid-gap: 10px;
+margin: 0 auto;
+max-width: 500px;
+padding: 16px;
+
+.profileArea {
+  display: none;
+  @media(min-width: 860px) {
+    display: block;
+  }
+}
+
+@media(min-width: 860px) {
+  max-width: 1110px;
+  display: grid;
+  grid-template-areas: 
+    "profileAreas welcomeArea profileRelationsArea";
+  grid-template-columns: 160px 1fr 312px;
+}
+`;
+
+export default MainGrid;
