@@ -6,7 +6,7 @@ border-radius: 8px;
 padding: 16px;
 
 margin-bottom: 10px;
-.boxlin{
+.boxLink{
     font-size: 14px;
     color: #2e7bb4;
     text-decoration: none;
