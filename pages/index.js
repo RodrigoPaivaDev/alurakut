@@ -25,6 +25,29 @@ function ProfileSideBar(propriedades) {
   )
 }
 
+function ProfileRelationsBox(propriedades){
+  return (
+    <ProfileRelationsBoxWrapper>
+      <h2 className="smallTitle">
+        {propriedades.title} ({propriedades.items.length})
+      </h2>
+      
+  {/*     
+      <ul>
+        {propriedades.map((itemAtual) => {
+          return (
+            <li key={itemAtual}>
+              <a href={`https://github.com/${itemAtual}`} target="_blank" >
+                <img src={`https://github.com/${itemAtual}.png`} />
+                <span>{itemAtual}</span>
+              </a>
+            </li>
+          )
+        })}
+      </ul> */}
+    </ProfileRelationsBoxWrapper>
+  )
+}
 
 export default function Home() {
   const usuario = 'rodrigopaivadev';
@@ -49,6 +72,21 @@ export default function Home() {
     'maykbrito',
   ];
 
+  const [seguidores, setSeguidores] = React.useState([]); //useState é para adicionar local para as info tela
+
+  //pegar as info apenas uma vez
+  React.useEffect(function() {
+    //pega as info da api do github
+    const seguidores = fetch('https://api.github.com/users/RodrigoPaivaDev/followers')
+    .then(function (respostaDoServidor){
+      return respostaDoServidor.json();
+    })
+    .then(function (respostaCompleta){
+      setSeguidores(respostaCompleta);
+    })
+  }, [])
+
+
   return (
     <>
       <AlurakutMenu />
@@ -60,7 +98,7 @@ export default function Home() {
           <div className="welcomeArea" style={{ gridArea: 'welcomeArea' }}>
             <Box>
               <h1 className="title">
-                Bem vindo(a)
+                Bem vindo {usuario}
               </h1>
               <OrkutNostalgicIconSet />
             </Box>
@@ -109,6 +147,34 @@ export default function Home() {
 
           <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
 
+            
+            <ProfileRelationsBox title="Seguidores" items={seguidores} /> {/*chama a funcao e passa title e items como parametros para ela */ }
+
+
+
+
+            <ProfileRelationsBoxWrapper>
+              <h2 className="smallTitle">
+                Pessoas da comunidade ({pessoasFavoritas.length})
+              </h2>
+              
+              
+              <ul>
+                {pessoasFavoritas.map((itemAtual) => {
+                  return (
+                    <li key={itemAtual}>
+                      <a href={`https://github.com/${itemAtual}`} target="_blank" >
+                        <img src={`https://github.com/${itemAtual}.png`} />
+                        <span>{itemAtual}</span>
+                      </a>
+                    </li>
+                  )
+                })}
+              </ul>
+            </ProfileRelationsBoxWrapper>
+
+
+
             <ProfileRelationsBoxWrapper>
 
               <h2 className="smallTitle">
@@ -131,26 +197,6 @@ export default function Home() {
               </ul>
             </ProfileRelationsBoxWrapper>
 
-         
-            <ProfileRelationsBoxWrapper>
-              <h2 className="smallTitle">
-                Pessoas da comunidade ({pessoasFavoritas.length})
-              </h2>
-              
-              
-              <ul>
-                {pessoasFavoritas.map((itemAtual) => {
-                  return (
-                    <li key={itemAtual}>
-                      <a href={`https://github.com/${itemAtual}`} >
-                        <img src={`https://github.com/${itemAtual}.png`} />
-                        <span>{itemAtual}</span>
-                      </a>
-                    </li>
-                  )
-                })}
-              </ul>
-            </ProfileRelationsBoxWrapper>
            
           </div>
         </MainGrid>

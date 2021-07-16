@@ -40,7 +40,7 @@ hr {
     width: 100%;
     background-color: #F4F4F4;
     color: #333333;
-    border: 0;
+    border: 1px solid #6F92BB;
     padding: 14px 16px;
     margin-bottom: 14px;
     border-radius: 10000px;
