@@ -65,9 +65,9 @@ export default function Home() {
     'juunegreiros',
     'fino59', 
     'omariosouto', 
-    'marcobrunodev', 
-    'peas',  
-    'diego3g', 
+    'marcobrunodev',   
+    'diego3g',
+    'peas',
     'filipedeschamps',
     'maykbrito',
   ];
@@ -98,7 +98,7 @@ export default function Home() {
           <div className="welcomeArea" style={{ gridArea: 'welcomeArea' }}>
             <Box>
               <h1 className="title">
-                Bem vindo {usuario}
+                Bem vindo, Rodrigo
               </h1>
               <OrkutNostalgicIconSet />
             </Box>

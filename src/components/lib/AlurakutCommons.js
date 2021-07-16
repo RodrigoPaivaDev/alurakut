@@ -39,13 +39,13 @@ export function AlurakutMenu({ githubUser }) {
             Sair
           </a>
           <div>
-            <input placeholder="Pesquisar no Orkut" />
+            <input placeholder="Pesquisar no Alurakut" />
           </div>
         </nav>
 
         <button onClick={() => setMenuState(!isMenuOpen)}>
-          {isMenuOpen && <img src={`${BASE_URL}/icons/menu-open.svg?v=${v}`} />}
-          {!isMenuOpen && <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} />}
+          {isMenuOpen && <img src={`https://img.icons8.com/material-outlined/40/000000/menu--v1.png`} />}
+          {!isMenuOpen && <img src={`https://img.icons8.com/fluent-systems-filled/35/000000/x.png`} />}
         </button>
       </div>
       <AlurakutMenuProfileSidebar githubUser={githubUser} />
@@ -54,10 +54,11 @@ export function AlurakutMenu({ githubUser }) {
 }
 AlurakutMenu.Wrapper = styled.header`
   width: 100%;
-  background-color: #308BC5;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
 
   .alurakutMenuProfileSidebar {
-    background: white;
+    background: #fff;
     position: fixed;
     z-index: 100;
     padding: 46px;
@@ -75,6 +76,7 @@ AlurakutMenu.Wrapper = styled.header`
     > div {
       max-width: 400px;
       margin: auto;
+      
     }
     a {
       font-size: 18px;
@@ -85,18 +87,19 @@ AlurakutMenu.Wrapper = styled.header`
       -webkit-text-decoration: none;
       text-decoration: none;
       font-weight: 800;
+      
     }
 
     hr {
       margin-top: 12px;
       margin-bottom: 8px;
       border-color: transparent;
-      border-bottom-color: #ECF2FA;
+      border-bottom-color: #000;
     }
   }
 
   .container {
-    background-color: #308BC5;
+    background-color: #fff;
     padding: 7px 16px;
     max-width: 1110px;
     margin: auto;
@@ -125,13 +128,13 @@ AlurakutMenu.Wrapper = styled.header`
       }
       a {
         font-size: 12px;
-        color: white;
+        color: #000;
         padding: 10px 16px;
         position: relative;
         text-decoration: none;
         &:after {
           content: " ";
-          background-color: #5292C1;
+          background-color: #000;
           display: block;
           position: absolute;
           width: 1px;
@@ -142,27 +145,31 @@ AlurakutMenu.Wrapper = styled.header`
           bottom: 0;
         }
       }
+      a:hover{
+        color: #5579a1;
+      }
     }
     input {
-      color: #ffffff;
-      background: #5579A1;
+      color: #000;
+      background: #fff;
       padding: 10px 42px;
-      border: 0;
-      background-image: url(${`${BASE_URL}/icons/search.svg`});
+      border: 1px solid rgba(0,0,0,.2);
+      background-image: url(${`https://img.icons8.com/ios/18/000000/search--v1.png`});
       background-position: 15px center;
       background-repeat: no-repeat;
-      border-radius: 1000px;
+      border-radius: 5px;
       font-size: 12px;
       ::placeholder {
-        color: #ffffff;
+        color: rgba(0,0,0,.7);
         opacity: 1;
       }
     } 
   }
 `;
 AlurakutMenu.Logo = styled.img`
-  background-color: #ffffff;
+  background-color: #000;
   padding: 9px 14px;
+  margin-right: 10px;
   border-radius: 1000px;
   height: 34px;
 `;
@@ -226,8 +233,9 @@ export function AlurakutProfileSidebarMenuDefault() {
 }
 AlurakutProfileSidebarMenuDefault.Wrapper = styled.div`
   a {
+    
     font-size: 12px;
-    color: #2E7BB4;
+    color: #000;
     margin-bottom: 16px;
     display: flex;
     align-items: center;
@@ -338,6 +346,7 @@ const AlurakutLoginScreen = css`
     --textTertiaryColor: #5A5A5A;
     --textQuarternaryColor: #C5C6CA;
     --commonRadius: 8px;
+    --formButtonColor: #000;
   }
 
 
@@ -438,7 +447,7 @@ const AlurakutLoginScreen = css`
           border: 0;
           padding: 12px;
           border-radius: var(--commonRadius);
-          background-color: var(--colorPrimary);
+          background-color: var(--formButtonColor);
           color: var(--textSecondaryColor);
         }
       }
