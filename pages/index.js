@@ -251,7 +251,7 @@ export async function getServerSideProps(context) {
 
 
 
-  const { isAuthenticated } = await fetch('http://localhost:3000/api/auth',{
+  const { isAuthenticated } = await fetch('https://alurakut-tau-smoky.vercel.app/api/auth',{
     headers: {
       Authorization: token
     }
@@ -267,6 +267,7 @@ export async function getServerSideProps(context) {
         permanent: false,
       }
     }
+    
   } 
 
   const { githubUser } = jwt.decode(token);
