@@ -21,6 +21,7 @@ function Link({ href, children, ...props }) {
 // ================================================================================================================
 export function AlurakutMenu({ githubUser }) {
   const [isMenuOpen, setMenuState] = React.useState(false);
+  githubUser = 'rodrigopaivadev';
   return (
     <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
       <div className="container">
@@ -42,10 +43,10 @@ export function AlurakutMenu({ githubUser }) {
             <input placeholder="Pesquisar no Alurakut" />
           </div>
         </nav>
-
+        
         <button onClick={() => setMenuState(!isMenuOpen)}>
-          {isMenuOpen && <img src={`https://img.icons8.com/material-outlined/40/000000/menu--v1.png`} />}
-          {!isMenuOpen && <img src={`https://img.icons8.com/fluent-systems-filled/35/000000/x.png`} />}
+          {isMenuOpen && <img src={`https://img.icons8.com/fluent-systems-filled/35/000000/x.png`} />}
+          {!isMenuOpen && <img src={`https://img.icons8.com/material-outlined/40/000000/menu--v1.png`} />}
         </button>
       </div>
       <AlurakutMenuProfileSidebar githubUser={githubUser} />
@@ -196,10 +197,12 @@ function AlurakutMenuProfileSidebar({ githubUser }) {
 // ================================================================================================================
 // AlurakutProfileSidebarMenuDefault
 // ================================================================================================================
-export function AlurakutProfileSidebarMenuDefault() {
+export function AlurakutProfileSidebarMenuDefault({}) {
   return (
     <AlurakutProfileSidebarMenuDefault.Wrapper>
+    
       <nav>
+      
         <a href="/">
           <img src={`${BASE_URL}/icons/user.svg`} />
             Perfil

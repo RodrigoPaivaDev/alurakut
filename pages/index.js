@@ -34,19 +34,19 @@ function ProfileRelationsBox(propriedades){
         {propriedades.title} ({propriedades.items.length})
       </h2>
       
-  {/*     
+      
       <ul>
-        {propriedades.map((itemAtual) => {
+        {propriedades.items.map((itemAtual) => {
           return (
             <li key={itemAtual}>
-              <a href={`https://github.com/${itemAtual}`} target="_blank" >
-                <img src={`https://github.com/${itemAtual}.png`} />
-                <span>{itemAtual}</span>
+              <a href={`https://github.com/${itemAtual.login}`} target="_blank" >
+                <img src={`https://github.com/${itemAtual.login}.png`} />
+                <span>{itemAtual.login}</span>
               </a>
             </li>
           )
         })}
-      </ul> */}
+      </ul> 
     </ProfileRelationsBoxWrapper>
   )
 }
@@ -54,6 +54,7 @@ function ProfileRelationsBox(propriedades){
 export default function Home(props) {
   const usuario = props.githubUser;
   const [comunidades, setComunidades] = React.useState([]);
+  const [seguidores, setSeguidores] = React.useState([]); //useState é para adicionar local para as info tela
   // const comunidades = comunidades [0];
   /// const alteradorDeComunidades/setComunidades = comunidades[1]
   //const comunidades = ['Alurakut'];
@@ -64,13 +65,13 @@ export default function Home(props) {
     'fino59', 
     'omariosouto', 
     'marcobrunodev',   
-    'diego3g',
     'peas',
+    'diego3g',
     'filipedeschamps',
     'maykbrito',
   ];
 
-  const [seguidores, setSeguidores] = React.useState([]); //useState é para adicionar local para as info tela
+ 
 
   //pegar as info apenas uma vez
   React.useEffect(function() {
@@ -129,7 +130,7 @@ export default function Home(props) {
             </Box>
 
             <Box>
-              <h2 className="subTitle">O que vocẽ deseja fazer?</h2>
+              <h2 className="subTitle">Crie sua comunidade!</h2>
               {/* função recebendo 'e' como paramentro o 'e' traz varias funcionalidades para utilizar  */}
               <form onSubmit={function handleCriaComunidade(e){
                 e.preventDefault();

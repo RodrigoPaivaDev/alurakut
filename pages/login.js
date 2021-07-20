@@ -6,7 +6,7 @@ import nookies from 'nookies'; //necessario para guardar o token do usuario
 export default function LoginScreen() {    
 
     const router = useRouter();
-    const [githubUser, setGithubUser] = React.useState('rodrigo');
+    const [githubUser, setGithubUser] = React.useState('rodrigopaivadev');
 
   return (
     <main style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
